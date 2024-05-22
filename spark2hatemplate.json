@@ -460,7 +460,7 @@
   "hostTemplates": [
     {
       "refName": "gateway",
-      "cardinality": 0,
+      "cardinality": 1,
       "roleConfigGroupsRefNames": [
         "hdfs-GATEWAY-BASE",
         "hive-GATEWAY-BASE",
