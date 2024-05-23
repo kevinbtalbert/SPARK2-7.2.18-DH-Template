@@ -1,0 +1,15 @@
+cdp datahub create-azure-cluster \
+--cluster-name nameinlowercasehere \
+--environment-name kevin1-cdp-env \
+--cluster-template-name "7.2.18 - Data Engineering: HA: Apache Spark2, Apache Hive, Apache Oozie" \
+--instance-groups nodeCount=0,instanceGroupName=gateway,instanceGroupType=CORE,instanceType=Standard_D16s_v3,rootVolumeSize=100,attachedVolumeConfiguration=\[\{volumeSize=150,volumeCount=1,volumeType=StandardSSD_LRS\}\],recoveryMode=MANUAL nodeCount=1,instanceGroupName=masterx,instanceGroupType=CORE,instanceType=Standard_D16s_v3,rootVolumeSize=100,attachedVolumeConfiguration=\[\{volumeSize=150,volumeCount=1,volumeType=StandardSSD_LRS\}\],recoveryMode=MANUAL nodeCount=2,instanceGroupName=manager,instanceGroupType=GATEWAY,instanceType=Standard_D16s_v3,rootVolumeSize=100,attachedVolumeConfiguration=\[\{volumeSize=150,volumeCount=1,volumeType=StandardSSD_LRS\}\],recoveryMode=MANUAL nodeCount=1,instanceGroupName=compute,instanceGroupType=CORE,instanceType=Standard_D16s_v3,rootVolumeSize=100,recoveryMode=MANUAL nodeCount=3,instanceGroupName=worker,instanceGroupType=CORE,instanceType=Standard_D16s_v3,rootVolumeSize=100,attachedVolumeConfiguration=\[\{volumeSize=500,volumeCount=1,volumeType=StandardSSD_LRS\}\],recoveryMode=MANUAL nodeCount=2,instanceGroupName=master,instanceGroupType=CORE,instanceType=Standard_D16s_v3,rootVolumeSize=100,attachedVolumeConfiguration=\[\{volumeSize=150,volumeCount=1,volumeType=StandardSSD_LRS\}\],recoveryMode=MANUAL \
+--subnet-id kevin1-sbnt-01 \
+--image id=ce08d8a2-ff77-433a-b96a-eddc8acb0775,catalogName=cdp-default \
+--no-multi-az \
+
+## DELETE THE LINE BELOW:
+--no-enable-load-balancer
+
+## ADD THE BELOW TWO PARAMETERS TO CLI COMMAND
+--datahub-database HA \
+--enable-load-balancer 
